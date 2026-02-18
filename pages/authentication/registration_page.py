@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page
 from components.authentication.registration_form_component import RegistrationFormComponent
 from pages.base_page import BasePage
@@ -19,3 +21,4 @@ class RegistrationPage(BasePage):
 
     def clik_login_link(self):
         self.login_link.click()
+        self.check_current_url(re.compile('.*/#/auth/login'))
